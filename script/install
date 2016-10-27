@@ -12,3 +12,6 @@ brew bundle
 
 # find the installers and run them iteratively
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+
+curl -sL https://raw.githubusercontent.com/egalpin/apt-vim/master/install.sh | sh
+apt-vim install -y https://github.com/scrooloose/nerdtree.git

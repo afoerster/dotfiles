@@ -39,3 +39,5 @@ do
 done
 
 unset config_files
+
+export PATH=/Library/Python/2.7/site-packages/:/usr/local/sbin:/usr/local/bin:/usr/local/opt/:/usr/bin:/bin:/usr/sbin:/sbin:/Users/anthonyfoerster/.scripts:/Users/anthonyfoerster/bin/kafka_2.10-0.8.2.2/bin:/Users/anthonyfoerster/code/rebar/:./bin:/usr/local/bin:/usr/local/sbin:/Users/anthonyfoerster/.dotfiles/bin:/Users/anthonyfoerster/.rbenv/shims:/Users/anthonyfoerster/.yarn/bin:/Users/anthonyfoerster/Code/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Python/2.7/site-packages/:/usr/local/sbin:/usr/local/opt/:/Users/anthonyfoerster/.scripts:/Users/anthonyfoerster/bin/kafka_2.10-0.8.2.2/bin:/Users/anthonyfoerster/code/rebar/:/Users/anthonyfoerster/.vimpkg/bin
