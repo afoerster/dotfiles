@@ -24,3 +24,4 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias grep="egrep --color=auto"
 alias vimenv="vim ~/.zsh/env.zsh"
+alias vim=nvim

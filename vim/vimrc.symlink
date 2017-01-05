@@ -21,9 +21,6 @@ set visualbell
 set encoding=utf-8
 
 " Whitespace
-set wrap
-set textwidth=80
-set formatoptions=tcqrn1
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -49,3 +46,10 @@ let g:solarized_termtrans=1
 " colorscheme solarized
 execute pathogen#infect()
 call pathogen#helptags()
+
+" use \tt to go to last tab
+let g:lasttab = 1
+nmap <Leader>tt :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+
+let g:ctrlp_show_hidden = 1
