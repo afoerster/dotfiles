@@ -1,0 +1,17 @@
+cask_args appdir: '/Applications'
+
+brew 'ack'
+brew 'coreutils'
+brew 'openssl'
+brew 'node'
+brew 'readline'
+brew 'unrar'
+brew 'wget'
+brew 'scala-spark'
+brew 'scala'
+
+cask 'atom'
+cask 'firefox'
+cask 'google-chrome'
+cask 'slack'
+cask 'intellij-idea'

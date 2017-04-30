@@ -1,5 +1,6 @@
 alias reload!='. ~/.zshrc'
-
+alias tflint='docker run -v $(pwd):/data --workdir=/data -t wata727/tflint'
+alias pandoc='docker run -v `pwd`:/source jagregory/pandoc'
 alias cls='clear' # Good 'ol Clear Screen command
 alias lr='ls -tr'
 alias cd..='cd ..'
@@ -24,4 +25,3 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias grep="egrep --color=auto"
 alias vimenv="vim ~/.zsh/env.zsh"
-alias vim=nvim

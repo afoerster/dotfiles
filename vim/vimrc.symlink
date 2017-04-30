@@ -1,55 +1,46 @@
-" Don't try to be vi compatible
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 set nocompatible
-
-" Helps force plugins to load correctly when it is turned back on below
-filetype off
-inoremap jj <ESC>:
-
-" Turn on syntax highlighting
+filetype plugin indent on
 syntax on
-
-" Show line numbers
-set number
-
-" Show file stats
-set ruler
-
-" Blink cursor on error instead of beeping (grr)
-set visualbell
-
-" Encoding
-set encoding=utf-8
-
-" Whitespace
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set noshiftround
-
-" Cursor motion
-set scrolloff=3
-set backspace=indent,eol,start
-set matchpairs+=<:> " use % to jump between pairs
-runtime! macros/matchit.vim
-
-" Rendering
+set noerrorbells
+set novisualbell
+set t_vb=
+set autoindent
+set softtabstop =4
+set shiftwidth =4
+set expandtab
+set shiftround
+set backspace =indent,eol,start
+set hidden
+set laststatus =2
+set display =lastline
+set noshowmode
+set showcmd
+set incsearch
+set hlsearch
 set ttyfast
+set lazyredraw
+set splitbelow
+set splitright
+set showmode
+set cursorline
+set wrapscan
+set report =0
+set synmaxcol =200
+set list
+if has('multi_byte') && &encoding ==# 'utf-8'
+  let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
+else
+  let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
+endif
+let g:vim_markdown_folding_style_pythonic = 1
 
-
-" Color scheme (terminal)
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-" in ~/.vim/colors/ and uncomment:
-" colorscheme solarized
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
 execute pathogen#infect()
 call pathogen#helptags()
-
-" use \tt to go to last tab
-let g:lasttab = 1
-nmap <Leader>tt :exe "tabn ".g:lasttab<CR>
-au TabLeave * let g:lasttab = tabpagenr()
-
-let g:ctrlp_show_hidden = 1
