@@ -6,7 +6,9 @@ function pless() {
     pcat "$1" | less -R
 }
 
-copy() {rsync  -a --progress $1 $2}
+copy() {
+    rsync  -a --progress $1 $2
+}
 
 extract () {
     if [ -f $1 ] ; then

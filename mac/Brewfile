@@ -8,8 +8,9 @@ brew 'readline'
 brew 'unrar'
 brew 'wget'
 brew 'scala-spark'
-brew 'scala'
-
+brew 'scalaa
+brew 'terminal-parrot'
+brew 'sysdig'
 cask 'atom'
 cask 'firefox'
 cask 'google-chrome'
