@@ -2,12 +2,13 @@
 set -euo pipefail
 cd "$(dirname $0)"
 
+find . -name *.symlink | while read symlink ; do 
+    f=$(basename ${symlink%.*})
+    echo "Linking $f"
+    sh -c "ln -s $f $HOME/\.$f" || true
+done
+
 find . -name install.sh | while read installer ; do 
     sh -c "${installer}" || true
 done
 
-find . -name *.symlink | while read symlink ; do 
-    f=${symlink%.*}
-    echo "Linking $f"
-    sh -c "ln -s $f ~" || true
-done
