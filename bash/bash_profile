@@ -43,4 +43,7 @@ export SHORT_TERM_LINE=true
 
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
-source <(/Users/anthonyfoerster/.dotfiles/bash/root.sh)
+source $HOME/.dotfiles/bash/config.sh
+source $HOME/.dotfiles/bash/aliases.sh
+source $HOME/.dotfiles/bash/functions.sh
+source $HOME/.dotfiles/bash/env.sh
