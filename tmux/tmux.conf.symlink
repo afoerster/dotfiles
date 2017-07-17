@@ -1,1 +1,9 @@
-set-option -g history-limit 30000
+# don't rename windows automatically
+set-option -g allow-rename off
+
+# increase history
+set -g history-limit 40000
+
+# reload configuration
+bind r source-file ~/.tmux.conf \; display '~/.tmux.conf sourced'
+
