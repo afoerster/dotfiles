@@ -29,7 +29,7 @@ export GPG_AGENT_INFO
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
 # Path to the bash it configuration
-export BASH_IT="/Users/anthonyfoerster/.bash_it"
+export BASH_IT="$HOME/.bash_it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
