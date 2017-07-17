@@ -5,7 +5,7 @@ cd "$(dirname $0)"
 find . -name *.symlink | while read symlink ; do 
     f=$(basename ${symlink%.*})
     echo "Linking $f"
-    sh -c "ln -s $f $HOME/\.$f" || true
+    sh -c "ln -s $(realpath $f) $HOME/\.$f" || true
 done
 
 find . -name install.sh | while read installer ; do 
