@@ -7,3 +7,4 @@ set -g history-limit 40000
 # reload configuration
 bind r source-file ~/.tmux.conf \; display '~/.tmux.conf sourced'
 
+set -g default-terminal "screen-256color"
