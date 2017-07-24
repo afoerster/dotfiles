@@ -33,6 +33,7 @@ set synmaxcol =200
 set list
 set ruler
 set colorcolumn=80
+set number
 
 " show tabs
 set listchars=tab:\|_
