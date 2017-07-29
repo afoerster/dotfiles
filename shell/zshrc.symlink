@@ -3,15 +3,149 @@ if [[ -f ~/.profile ]]; then
     . ~/.profile
 fi
 
-autoload -U colors
-colors
+autoload -U colors && colors
 setopt prompt_subst
 
-PROMPT='
-%~
-> '
-
+export PROMPT="
+[%4c]
+> "
 setopt menucomplete
 autoload -U compinit && compinit
 zstyle ':completion:*' menu select
 fpath=(/usr/local/share/zsh-completions $fpath)
+setopt auto_continue # processes are not killed on exit of shell
+setopt RM_STAR_WAIT # prompt for removal of directories
+setopt glob_complete
+setopt auto_name_dirs
+setopt list_packed
+setopt menu_complete
+setopt mark_dirs
+setopt path_dirs
+setopt auto_pushd
+setopt no_hup
+zmodload zsh/complist
+setopt auto_resume
+setopt extendedglob
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no matches for:  %d%b'
+
+# ===== Basics
+
+# If you type foo, and it isn't a command, and it is a directory in your cdpath, go there
+setopt AUTO_CD
+
+# Help us out with basic spelling correction for commands
+setopt CORRECT
+
+# Allow comments even in interactive shells (especially for Muness)
+setopt INTERACTIVE_COMMENTS
+
+# ===== History
+
+# Allow multiple terminal sessions to all append to one zsh command history
+setopt APPEND_HISTORY 
+
+# Add comamnds as they are typed, don't wait until shell exit
+setopt INC_APPEND_HISTORY 
+
+# Do not write events to history that are duplicates of previous events
+setopt HIST_IGNORE_DUPS
+
+# When searching history don't display results already cycled through twice
+setopt HIST_FIND_NO_DUPS
+
+# Remove extra blanks from each command line being added to history
+setopt HIST_REDUCE_BLANKS
+
+# Include more information about when the command was executed, etc
+setopt EXTENDED_HISTORY
+
+# Enables real-time sharing of history across terminal sessions
+setopt SHARE_HISTORY
+
+# ===== Completion 
+
+# Allow completion from within a word/phrase
+setopt COMPLETE_IN_WORD 
+
+# When completing from the middle of a word, move the cursor to the end of the word
+setopt ALWAYS_TO_END            
+
+# Append a trailing `/' to all directory names resulting from filename generation (globbing).
+setopt MARK_DIRS 
+# ===== Prompt
+
+# Enable parameter expansion, command substitution, and arithmetic expansion in the prompt
+setopt PROMPT_SUBST
+
+# Expand aliases
+setopt ALIASES
+
+# COMPLETION
+zmodload -i zsh/complist
+
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+zstyle ':completion:*' menu select
+
+# insert all expansions for expand completer
+zstyle ':completion:*:expand:*' keep-prefix true tag-order all-expansions
+ 
+# formatting and messages
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format "- %{${fg[yellow]}%}%d%{${reset_color}%} -"
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-separator '#'
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+zstyle ':completion:*:prefix:*' add-space true
+
+# Make the nice with git completion and others
+zstyle ':completion::*:(git|less|rm|emacs)' ignore-line true
+
+# SSH Completion
+zstyle ':completion:*:scp:*' tag-order files 'hosts:-domain:domain'
+zstyle ':completion:*:scp:*' group-order files all-files users hosts-domain hosts-host hosts-ipaddr
+zstyle ':completion:*:ssh:*' tag-order 'hosts:-domain:domain'
+zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
+ 
+### highlight parameters with uncommon names
+zstyle ':completion:*:parameters' list-colors "=[^a-zA-Z]*=$color[red]"
+
+### highlight aliases
+zstyle ':completion:*:aliases' list-colors "=*=$color[green]"
+
+### highlight the original input.
+zstyle ':completion:*:original' list-colors "=*=$color[red];$color[bold]"
+
+### highlight words like 'esac' or 'end'
+zstyle ':completion:*:reserved-words' list-colors "=*=$color[red]"
+
+### colorize hostname completion
+zstyle ':completion:*:*:*:*:hosts' list-colors "=*=$color[cyan];$color[bg-black]"
+
+# Disable completion of usernames
+zstyle ':completion:*' users off
+
+## add colors to processes for kill completion
+zstyle ':completion:*:*:kill:*' verbose yes
+zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#) #([^ ]#)*=$color[cyan]=$color[yellow]=$color[green]"
+
+## With commands like `rm' it's annoying if one gets offered the same filename
+## again even if it is already on the command line. To avoid that:
+zstyle ':completion:*:rm:*' ignore-line yes
+
+## Manpages, ho!
+zstyle ':completion:*:manuals'       separate-sections true
+zstyle ':completion:*:manuals.(^1*)' insert-sections   true
+
+# This makes rake autocomplete happy
+zstyle ':completion:*' matcher-list 'r:|[:]=*'
+
+# Cache
+# zstyle ':completion:*' use-cache off
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
