@@ -51,4 +51,5 @@ nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
 colorscheme desert
+highlight ColorColumn ctermbg=darkblue guibg=darkblue
 

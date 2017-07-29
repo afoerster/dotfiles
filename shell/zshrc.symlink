@@ -1,0 +1,16 @@
+if [[ -f ~/.profile ]]; then
+    echo "loading profile"
+    . ~/.profile
+fi
+
+autoload -U colors
+colors
+setopt prompt_subst
+
+PROMPT='
+%~
+> '
+
+setopt menucomplete
+autoload -U compinit && compinit
+zstyle ':completion:*' menu select

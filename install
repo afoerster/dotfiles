@@ -5,9 +5,7 @@ cd "$(dirname $0)"
 find $(pwd) -name *.symlink | while read symlink ; do 
     f=${symlink%.*}
     echo "Linking $f"
-set -x
     sh -c "ln -s $symlink $HOME/.$(basename $f)" || true
-set +x
 done
 
 find . -name install.sh | while read installer ; do 
