@@ -49,4 +49,3 @@ export GPG_AGENT_INFO
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
-alias src='source $HOME/.bash_profile'

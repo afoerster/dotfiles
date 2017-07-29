@@ -23,3 +23,9 @@ HISTFILESIZE=20000000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# Use bash-completion, if available
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion
+
+# autocomplete makefile targets
+complete -W "\`grep -oE '^[a-zA-Z0-9_-]+:([^=]|$)' Makefile | sed 's/[^a-zA-Z0-9_-]*$//'\`" make

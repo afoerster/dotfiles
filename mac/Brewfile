@@ -10,9 +10,12 @@ brew 'wget'
 brew 'scala-spark'
 brew 'scalaa
 brew 'terminal-parrot'
+brew 'bash-completions'
+brew 'zsh-completions'
 brew 'sysdig'
 cask 'atom'
 cask 'firefox'
 cask 'google-chrome'
 cask 'slack'
 cask 'intellij-idea'
+

@@ -14,3 +14,4 @@ PROMPT='
 setopt menucomplete
 autoload -U compinit && compinit
 zstyle ':completion:*' menu select
+fpath=(/usr/local/share/zsh-completions $fpath)
