@@ -48,4 +48,3 @@ export GPG_TTY=`tty`
 export GPG_AGENT_INFO
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
-
