@@ -5,6 +5,7 @@
         protocol = https
 [alias]
         count   = !git shortlog -sn
+	exec = "!exec "
 [color]
         diff = auto
         status = auto
