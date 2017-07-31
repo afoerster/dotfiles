@@ -20,7 +20,7 @@ else
 fi
 
 alias tflint='docker run -v $(pwd):/data --workdir=/data -t wata727/tflint'
-alias pandoc='docker run -v `pwd`:/source jagregory/pandoc'
+alias pandoc='docker run -v "`pwd`":/source jagregory/pandoc'
 alias lr='ls -tr'
 alias cd..='cd ..'
 alias dstat='dstat -cnry'   
