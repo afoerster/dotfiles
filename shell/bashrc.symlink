@@ -3,3 +3,7 @@
 if command -v tmux>/dev/null; then
       [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/anthonyfoerster/.sdkman"
+[[ -s "/Users/anthonyfoerster/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/anthonyfoerster/.sdkman/bin/sdkman-init.sh"
