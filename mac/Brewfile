@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 
 brew 'ack'
+brew 'z'
 brew 'coreutils'
 brew 'openssl'
 brew 'node'
