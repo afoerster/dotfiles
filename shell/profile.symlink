@@ -21,6 +21,7 @@ fi
 
 alias tflint='docker run -v $(pwd):/data --workdir=/data -t wata727/tflint'
 alias pandoc='docker run -v "`pwd`":/source jagregory/pandoc'
+alias ack='docker run -it --rm mcampbell/ack'
 alias lr='ls -tr'
 alias cd..='cd ..'
 alias dstat='dstat -cnry'   
