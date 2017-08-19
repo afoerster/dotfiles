@@ -19,8 +19,11 @@ else
    eval `gpg-agent --daemon --no-grab --write-env-file $HOME/.gpg-agent-info`
 fi
 
+export LSCOLORS=Exfxcxdxbxegedabagacad
+
 alias tflint='docker run -v $(pwd):/data --workdir=/data -t wata727/tflint'
 alias pandoc='docker run -v "`pwd`":/source jagregory/pandoc'
+alias ack='docker run -it --rm mcampbell/ack'
 alias lr='ls -tr'
 alias cd..='cd ..'
 alias dstat='dstat -cnry'   
@@ -38,6 +41,10 @@ alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias grep="egrep --color=auto"
+alias urldecode='python -c "import sys, urllib as ul; \
+        print ul.unquote_plus(sys.argv[1])"'
+alias urlencode='python -c "import sys, urllib as ul; \
+        print ul.quote_plus(sys.argv[1])"'
 export PATH=$HOME/.vimpkg/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
@@ -54,3 +61,8 @@ if command -v brew >/dev/null 2>&1; then
 	# Load rupa's z if installed
 	[ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
 fi
+
+
+
+LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+
