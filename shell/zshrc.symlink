@@ -6,9 +6,11 @@ fi
 autoload -U colors && colors
 setopt prompt_subst
 
-export PROMPT="
-[%4c]
-> "
+#export PROMPT="
+#[%4c]
+#> "
+
+source .zsh_prompt
 setopt menucomplete
 autoload -U compinit && compinit
 zstyle ':completion:*' menu select
@@ -60,8 +62,9 @@ setopt HIST_REDUCE_BLANKS
 # Include more information about when the command was executed, etc
 setopt EXTENDED_HISTORY
 
-# Enables real-time sharing of history across terminal sessions
-setopt SHARE_HISTORY
+export SAVEHIST=1000000
+
+export HISTFILE=~/.zsh_history
 
 # ===== Completion
 
@@ -127,9 +130,6 @@ zstyle ':completion:*:reserved-words' list-colors "=*=$color[red]"
 ### colorize hostname completion
 zstyle ':completion:*:*:*:*:hosts' list-colors "=*=$color[cyan];$color[bg-black]"
 
-# Disable completion of usernames
-zstyle ':completion:*' users off
-
 ## add colors to processes for kill completion
 zstyle ':completion:*:*:kill:*' verbose yes
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#) #([^ ]#)*=$color[cyan]=$color[yellow]=$color[green]"
@@ -149,6 +149,8 @@ zstyle ':completion:*' matcher-list 'r:|[:]=*'
 # zstyle ':completion:*' use-cache off
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
+
 if command -v tmux>/dev/null; then
       [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec bash -c 'tmux a || tmux'
 fi
+
