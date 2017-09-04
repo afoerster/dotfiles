@@ -48,6 +48,7 @@ alias urlencode='python -c "import sys, urllib as ul; \
         print ul.quote_plus(sys.argv[1])"'
 export PATH=$HOME/.vimpkg/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.bin:$PATH
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export PAGER=less
 export MANPAGER=less
