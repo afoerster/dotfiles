@@ -3,5 +3,5 @@
 FACTOR=.95
 for x in ./*.jpg; do
    WIDTH=$(sips -g pixelWidth "$x"|grep pixelWidth|awk -v factor=$FACTOR '{print $2*factor}')
-   sips --resampleWidth $WIDTH "$x" --out $(echo $x|sed s/.jpg/_small.jpg/)
+   sips --resampleWidth $WIDTH "$x" --out "$(echo $x|sed s/.jpg/_small.jpg/)"
 done
