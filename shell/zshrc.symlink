@@ -62,7 +62,8 @@ setopt HIST_REDUCE_BLANKS
 # Include more information about when the command was executed, etc
 setopt EXTENDED_HISTORY
 
-export SAVEHIST=1000000
+export HISTSIZE=100000
+export SAVEHIST=$HISTSIZE
 
 export HISTFILE=~/.zsh_history
 
