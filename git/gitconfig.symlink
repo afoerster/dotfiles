@@ -33,3 +33,6 @@
 	autosetuprebase = always
 [branch "master"]
 	rebase = true
+[user]
+	name = Tony Foerster
+	email = tony@phdata.io

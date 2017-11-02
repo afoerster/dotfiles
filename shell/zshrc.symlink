@@ -6,10 +6,6 @@ fi
 autoload -U colors && colors
 setopt prompt_subst
 
-#export PROMPT="
-#[%4c]
-#> "
-
 source ~/.zsh_prompt
 setopt menucomplete
 autoload -U compinit && compinit
