@@ -10,6 +10,6 @@ done
 set -e
 find . -name install.sh | while read installer ; do 
 echo
-#    sh -c "${installer}" || true
+    bash -xe "${installer}" || true
 done
 
