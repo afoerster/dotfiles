@@ -2,7 +2,7 @@ if [[ -f ~/.profile ]]; then
     echo "loading profile"
     . ~/.profile
 fi
-
+export PATH=$PATH:$HOME/bin
 autoload -U colors && colors
 setopt prompt_subst
 
@@ -148,6 +148,6 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
 if command -v tmux>/dev/null; then
-      [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec bash -c 'tmux a || tmux'
+#      [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec bash -c 'tmux a || tmux'
 fi
 
