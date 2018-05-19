@@ -2,4 +2,4 @@ dist: trusty
 sudo: false
 
 script:
-  - ./install.sh
+  - ./install
