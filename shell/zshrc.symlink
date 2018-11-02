@@ -151,3 +151,4 @@ if command -v tmux>/dev/null; then
 #      [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec bash -c 'tmux a || tmux'
 fi
 
+eval "$(direnv hook zsh)"
