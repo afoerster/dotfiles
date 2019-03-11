@@ -86,3 +86,4 @@ source "$BASH_IT"/bash_it.sh
 
 eval "$(direnv hook bash)"
 
+export PATH=/usr/local/opt/findutils/libexec/gnubin:$PATH
