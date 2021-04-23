@@ -2,9 +2,9 @@ if [[ -f ~/.profile ]]; then
     echo "loading profile"
     . ~/.profile
 fi
-export PATH=$HOME/bin:/usr/local/opt/findutils/libexec/gnubin:$PATH
+export PATH=$HOME/bin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$PATH
+export CDPATH=.:~:$HOME/dev/phdata
 autoload -U colors && colors
-setopt prompt_subst
 
 source ~/.zsh_prompt
 setopt menucomplete
@@ -152,3 +152,13 @@ if command -v tmux>/dev/null; then
 fi
 
 eval "$(direnv hook zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/anthonyfoerster/.sdkman"
+[[ -s "/Users/anthonyfoerster/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/anthonyfoerster/.sdkman/bin/sdkman-init.sh"
+alias g=git
+
+
